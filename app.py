@@ -6,5 +6,5 @@ app = Flask(__name__)
 def home():
     return "Welcome to the Textbook Lending App!"
 
-if name == 'main':
+if __name__ == '__main__':
     app.run(debug=True)
