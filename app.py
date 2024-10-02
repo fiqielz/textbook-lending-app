@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(name)  # Pastikan name ditulis dengan benar
+app = Flask(__name__)  # Pastikan name ditulis dengan benar
 
 @app.route('/')
 def home():
@@ -22,5 +22,5 @@ def teacher():
 def spbt():
     return "Selamat datang, SPBT!"
 
-if name == 'main':
+if __name__ == '__main__':
     app.run(debug=True)
