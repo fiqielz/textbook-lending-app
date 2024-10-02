@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+app = Flask(name)
 
 @app.route('/')
 def home():
     return "Welcome to the Textbook Lending App!"
 
-if __name__ == '__main__':
+if name == 'main':
     app.run(debug=True)
