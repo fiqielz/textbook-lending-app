@@ -1,10 +1,26 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, redirect, url_for
 
-app = Flask(__name__)
+app = Flask(name)
 
 @app.route('/')
 def home():
-    return "Welcome to the Textbook Lending App!"
+    return render_template('index.html')
 
-if __name__ == '__main__':
+@app.route('/select_role', methods=['POST'])
+def select_role():
+    role = request.form.get('role')
+    if role == 'teacher':
+        return redirect(url_for('teacher'))
+    else:
+        return redirect(url_for('spbt'))
+
+@app.route('/teacher')
+def teacher():
+    return "Selamat datang, Guru!"
+
+@app.route('/spbt')
+def spbt():
+    return "Selamat datang, SPBT!"
+
+if name == 'main':
     app.run(debug=True)
