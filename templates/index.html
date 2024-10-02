@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Role</title>
+    <title>Pilih Peranan</title>
+    <style>
+        .role-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .role-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            width: 150px;
+        }
+        .role-box:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-    <h1>select your character</h1>
-    <form method="POST" action="/select_role">
-        <label for="role">select your character:</label>
-        <select id="role" name="role">
-            <option value="teacher">Guru</option>
-            <option value="spbt">SPBT</option>
-        </select>
-        <button type="submit">Submit</button>
+    <h1>Pilih Peranan Anda</h1>
+    <div class="role-container">
+        <div class="role-box" onclick="submitRole('teacher')">
+            <h3>Guru</h3>
+        </div>
+        <div class="role-box" onclick="submitRole('spbt')">
+            <h3>SPBT</h3>
+        </div>
+    </div>
+
+    <form id="roleForm" method="POST" action="/select_role">
+        <input type="hidden" name="role" id="roleInput">
     </form>
+
+    <script>
+        function submitRole(role) {
+            document.getElementById('roleInput').value = role;
+            document.getElementById('roleForm').submit();
+        }
+    </script>
 </body>
 </html>
